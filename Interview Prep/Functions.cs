@@ -7,6 +7,40 @@ namespace Interview_Prep
     public class Functions
     {
         /// <summary>
+        /// Determines whether the specified array contains any duplicate integer values.
+        /// </summary>
+        /// <remarks>If the array is null or contains fewer than two elements, the method returns
+        /// false. This method is O(n) complexity for both time and space.</remarks>
+        /// <param name="numbers">An array of integers to check for duplicate values. Can be null or empty.</param>
+        /// <returns>true if any value appears more than once in the array; otherwise, false.</returns>
+        public static bool ContainsDuplicate(int[] numbers)
+        {
+            // Validate the input parameters
+            if (numbers == null || numbers.Length < 2) return false;
+
+            // Declare the local scoep variables.
+            HashSet<int> seen = new HashSet<int>();
+
+            // Iterate through the numbers array to find duplicates.
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                // Check if the current number has already been seen.
+                if (seen.Contains(numbers[i]))
+                {
+                    return true;
+                }
+                else
+                {
+                    // If not seen, add the current number to the seen set.
+                    seen.Add(numbers[i]);
+                }
+            }
+
+            // If we complete the loop without finding duplicates, return false.
+            return false;
+        }
+
+        /// <summary>
         /// This method finds the minimum length of a contiguous subarray of which the sum is at least equal to the target value.
         /// </summary>
         /// <param name="target">The target sum to achieve.</param>
