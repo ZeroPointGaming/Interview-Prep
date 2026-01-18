@@ -16,7 +16,8 @@
             { "gettwosum", TestTwoSum },
             { "containsduplicate", TestContainsDuplicate },
             { "checktwosum", TestCheckTwoSum },
-            { "checkifdoubleexists", TestCheckIfDoubleExists }
+            { "checkifdoubleexists", TestCheckIfDoubleExists },
+            { "checkfornegativeint", TestCheckForNegativeInt }
         };
 
         static void Main(string[] args)
@@ -110,10 +111,15 @@
 
         static void TestLongestZeroSumSubarray()
         {
-            // The expected reuslt of the test array is 6 because index 0 to index 5 sums to zero.
             int[] test = new int[] { 1, 2, -3, 2, 4, -6, 4 };
             Console.WriteLine("Test Data: { 1, 2, -3, 2, 4, -6, 4 }");
             Console.WriteLine($"Zero sum sub array unit test results: {Functions.LongestZeroSumSubarray(test)}");
+
+            Console.WriteLine();
+
+            int[] testNegative = new int[] { -1, -2, 3, 0, 4, -4 };
+            Console.WriteLine("Test Data: { -1, -2, 3, 0, 4, -4 }");
+            Console.WriteLine($"Zero sum sub array unit test results: {Functions.LongestZeroSumSubarray(testNegative)}");
         }
 
         static void TestMinSubArrayLen()
@@ -129,6 +135,12 @@
             string test = "leetcode";
             Console.WriteLine("Test Data: \"leetcode\"");
             Console.WriteLine($"First unique character unit test results: {Functions.FirstUniqueChar(test)}");
+
+            Console.WriteLine();
+
+            string testNone = "aabbcc";
+            Console.WriteLine("Test Data: \"aabbcc\"");
+            Console.WriteLine($"First unique character unit test results: {Functions.FirstUniqueChar(testNone)}");
         }
 
         static void TestTwoSum()
@@ -138,6 +150,14 @@
             int[]? result = Functions.TwoSum(test, target);
             Console.WriteLine("Test Data: { 2, 7, 11, 15 } with target 9");
             Console.WriteLine($"Two sum unit test results: " + (result != null ? $"[{result[0]}, {result[1]}]" : ""));
+
+            Console.WriteLine();
+
+            int[] testNegative = new int[] { -3, 4, 1, 2 };
+            target = -1;
+            result = Functions.TwoSum(testNegative, target);
+            Console.WriteLine("Test Data: { -3, 4, 1, 2 } with target -1");
+            Console.WriteLine($"Two sum unit test results: " + (result != null ? $"[{result[0]}, {result[1]}]" : ""));
         }
 
         static void TestContainsDuplicate()
@@ -145,6 +165,12 @@
             int[] test = new int[] { 1, 2, 3, 1 };
             Console.WriteLine("Test Data: { 1, 2, 3, 1 }");
             Console.WriteLine($"Contains duplicate unit test results: {Functions.ContainsDuplicate(test)}");
+
+            Console.WriteLine();
+
+            int[] testNegative = new int[] { -1, -2, -3, -1 };
+            Console.WriteLine("Test Data: { -1, -2, -3, -1 }");
+            Console.WriteLine($"Contains duplicate unit test results: {Functions.ContainsDuplicate(testNegative)}");
         }
 
         static void TestCheckTwoSum()
@@ -153,12 +179,44 @@
             int target = 10;
             Console.WriteLine("Test Data: { 1, 2, 3, 4, 5 } with target 10");
             Console.WriteLine($"Check two sum unit test results: {Functions.CheckTwoSum(test, target)}");
+
+            Console.WriteLine();
+
+            int[] testNegative = new int[] { -2, -1, 3, 5 };
+            target = 4;
+            Console.WriteLine("Test Data: { -2, -1, 3, 5 } with target 4");
+            Console.WriteLine($"Check two sum unit test results: {Functions.CheckTwoSum(testNegative, target)}");
         }
 
         static void TestCheckIfDoubleExists()
         {
             int[] test = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            Console.WriteLine("Test Data: { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 } ");
+            Console.WriteLine("Test Data: { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }");
             Console.WriteLine($"Check if double exists: {Functions.CheckIfDoubleExists(test)}");
+
+            Console.WriteLine();
+
+            int[] testNegative = new int[] { -2, -4, 3, 6 };
+            Console.WriteLine("Test Data: { -2, -4, 3, 6 }");
+            Console.WriteLine($"Check if double exists: {Functions.CheckIfDoubleExists(testNegative)}");
+
+            Console.WriteLine();
+
+            int[] testZero = new int[] { 0, 0 };
+            Console.WriteLine("Test Data: { 0, 0 }");
+            Console.WriteLine($"Check if double exists: {Functions.CheckIfDoubleExists(testZero)}");
         }
-}
+
+        static void TestCheckIfDoubleExists()
+        {
+            int[] test = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            Console.WriteLine("Test Data: { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }");
+            Console.WriteLine($"Check if double exists: {Functions.CheckIfDoubleExists(test)}");
+
+            Console.WriteLine();
+
+            int[] testNegative = new int[] { 1, 3, 5, 7, 9 };
+            Console.WriteLine("Test Data: { 1, 3, 5, 7, 9 }");
+            Console.WriteLine($"Check if double exists: {Functions.CheckIfDoubleExists(testNegative)}");
+        }
+    }

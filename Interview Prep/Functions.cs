@@ -268,5 +268,40 @@ namespace Interview_Prep
 
             return false;
         }
+
+        /// <summary>
+        /// Determines whether the specified array contains at least one pair of integers where one is the negation of
+        /// the other.
+        /// </summary>
+        /// <remarks>The method returns false if the array is null or contains fewer than two elements.
+        /// Zero is considered its own negation, so a pair of zeros will be detected as a valid negation pair.</remarks>
+        /// <param name="numbers">An array of integers to search for pairs of numbers that are negatives of each other. Cannot be null.</param>
+        /// <returns>true if the array contains at least one pair of integers such that one is the negation of the other;
+        /// otherwise, false.</returns>
+        public static bool CheckIfNegationExists(int[] numbers)
+        {
+            // Validate the input parameters
+            if (numbers == null || numbers.Length < 2) return false;
+
+            // Declare the local scope variables.
+            HashSet<int> seen = new HashSet<int>();
+
+            // Iterate through the numbers array to find negation pairs.
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                // Check if the negation of the current number has already been seen.
+                if (seen.Contains(numbers[i] * -1))
+                {
+                    return true;
+                }
+                else
+                {
+                    // If not seen, add the current number to the seen set.
+                    seen.Add(numbers[i]);
+                }
+            }
+
+            return false;
+        }
     }
 }
