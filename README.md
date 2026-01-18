@@ -14,5 +14,7 @@ Implemented helpers:
 - `TwoSum(int[] nums, int target)` — returns two indices whose values add to `target`. Complexity: O(n) time, O(n) space.
 - `HasTwoSum(int[] nums, int target)` — returns whether any two values add to `target`. Complexity: O(n) time, O(n) space.
 - `CheckDoubleExists(int[] nums)` — returns whether any value is double another value in the array. Complexity: O(n) time, O(n) space.
+- `CheckNegativeIntExists(int[] nums)` — returns whether any negative integer exists in the array. Complexity: O(n) time, O(1) space.
+- `IsAnagram(string s1, string s2)` — returns whether two strings are anagrams. Complexity: O(n) time, O(1) extra space (fixed 256-size frequency array).
 
 All implementations are in `Interview Prep/Functions.cs`. The console listener and demo routines live in `Interview Prep/Program.cs`.

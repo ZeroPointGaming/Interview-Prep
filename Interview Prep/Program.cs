@@ -17,7 +17,8 @@
             { "containsduplicate", TestContainsDuplicate },
             { "checktwosum", TestCheckTwoSum },
             { "checkifdoubleexists", TestCheckIfDoubleExists },
-            { "checkfornegativeint", TestCheckForNegativeInt }
+            { "checkfornegativeint", TestCheckForNegativeInt },
+            { "checkanagram", TestCheckAnagram }
         };
 
         static void Main(string[] args)
@@ -178,14 +179,14 @@
             int[] test = new int[] { 1, 2, 3, 4, 5 };
             int target = 10;
             Console.WriteLine("Test Data: { 1, 2, 3, 4, 5 } with target 10");
-            Console.WriteLine($"Check two sum unit test results: {Functions.CheckTwoSum(test, target)}");
+            Console.WriteLine($"Check two sum unit test results: {Functions.HasTwoSum(test, target)}");
 
             Console.WriteLine();
 
             int[] testNegative = new int[] { -2, -1, 3, 5 };
             target = 4;
             Console.WriteLine("Test Data: { -2, -1, 3, 5 } with target 4");
-            Console.WriteLine($"Check two sum unit test results: {Functions.CheckTwoSum(testNegative, target)}");
+            Console.WriteLine($"Check two sum unit test results: {Functions.HasTwoSum(testNegative, target)}");
         }
 
         static void TestCheckIfDoubleExists()
@@ -207,16 +208,45 @@
             Console.WriteLine($"Check if double exists: {Functions.CheckIfDoubleExists(testZero)}");
         }
 
-        static void TestCheckIfDoubleExists()
+        static void TestCheckForNegativeInt()
         {
-            int[] test = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            Console.WriteLine("Test Data: { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }");
-            Console.WriteLine($"Check if double exists: {Functions.CheckIfDoubleExists(test)}");
+            int[] test = new int[] { 1, -1, 2, 3 };
+            Console.WriteLine("Test Data: { 1, -1, 2, 3 }");
+            Console.WriteLine($"Check for negation unit test results: {Functions.CheckIfNegationExists(test)}");
 
             Console.WriteLine();
 
-            int[] testNegative = new int[] { 1, 3, 5, 7, 9 };
-            Console.WriteLine("Test Data: { 1, 3, 5, 7, 9 }");
-            Console.WriteLine($"Check if double exists: {Functions.CheckIfDoubleExists(testNegative)}");
+            int[] testNoNeg = new int[] { 1, 2, 3, 4 };
+            Console.WriteLine("Test Data: { 1, 2, 3, 4 }");
+            Console.WriteLine($"Check for negation unit test results: {Functions.CheckIfNegationExists(testNoNeg)}");
+
+            Console.WriteLine();
+
+            int[] testZero = new int[] { 0, 1, 2, 0 };
+            Console.WriteLine("Test Data: { 0, 1, 2, 0 }");
+            Console.WriteLine($"Check for negation unit test results: {Functions.CheckIfNegationExists(testZero)}");
+        }
+
+        static void TestCheckAnagram()
+        {
+            string s1 = "listen";
+            string t1 = "silent";
+            Console.WriteLine("Test Data: \"listen\", \"silent\"");
+            Console.WriteLine($"Anagram unit test results: {Functions.IsAnagram(s1, t1)}");
+
+            Console.WriteLine();
+
+            string s2 = "rat";
+            string t2 = "car";
+            Console.WriteLine("Test Data: \"rat\", \"car\"");
+            Console.WriteLine($"Anagram unit test results: {Functions.IsAnagram(s2, t2)}");
+
+            Console.WriteLine();
+
+            string s3 = "Listen";
+            string t3 = "silent";
+            Console.WriteLine("Test Data: \"Listen\", \"silent\" (case-sensitive check)");
+            Console.WriteLine($"Anagram unit test results: {Functions.IsAnagram(s3, t3)}");
         }
     }
+}
