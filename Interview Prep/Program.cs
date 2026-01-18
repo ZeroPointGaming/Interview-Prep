@@ -114,6 +114,7 @@
         {
             // The expected reuslt of the test array is 6 because index 0 to index 5 sums to zero.
             int[] test = new int[] { 1, 2, -3, 2, 4, -6, 4 };
+            Console.WriteLine("Test Data: { 1, 2, -3, 2, 4, -6, 4 }");
             Console.WriteLine($"Zero sum sub array unit test results: {Functions.LongestZeroSumSubarray(test)}");
         }
 
@@ -121,12 +122,14 @@
         {
             int[] test = new int[] { 2, 3, 1, 2, 4, 3, 6, 1, 4, 3 };
             int target = 7;
+            Console.WriteLine("Test Data: { 2, 3, 1, 2, 4, 3, 6, 1, 4, 3 } with target 7");
             Console.WriteLine($"Min sub array length unit test results: {Functions.MinSubArrayLen(target, test)}");
         }
 
         static void TestFirstUniqueCharacter()
         {
             string test = "leetcode";
+            Console.WriteLine("Test Data: \"leetcode\"");
             Console.WriteLine($"First unique character unit test results: {Functions.FirstUniqueChar(test)}");
         }
 
@@ -135,12 +138,14 @@
             int[] test = new int[] { 2, 7, 11, 15 };
             int target = 9;
             int[]? result = Functions.TwoSum(test, target);
+            Console.WriteLine("Test Data: { 2, 7, 11, 15 } with target 9");
             Console.WriteLine($"Two sum unit test results: " + (result != null ? $"[{result[0]}, {result[1]}]" : ""));
         }
 
         static void TestContainsDuplicate()
         {
             int[] test = new int[] { 1, 2, 3, 1 };
+            Console.WriteLine("Test Data: { 1, 2, 3, 1 }");
             Console.WriteLine($"Contains duplicate unit test results: {Functions.ContainsDuplicate(test)}");
         }
     }
