@@ -215,22 +215,55 @@ namespace Interview_Prep
         /// <returns>true if there are two distinct elements in the array whose sum equals the target value; otherwise, false.</returns>
         public static bool HasTwoSum(int[] numbers, int target)
         {
+            // Validate the input parameters
             if (numbers == null || numbers.Length < 2) return false;
 
+            // Declare the local scope variables.
             HashSet<int> seen = new HashSet<int>();
 
+            // Iterate through the numbers array to find the two sum.
             for (int i = 0; i < numbers.Length; i++)
             {
+                // Calculate the needed value to reach the target sum.
                 int needed = target - numbers[i];
 
+                // Check if the needed value has already been seen.
                 if (!seen.Contains(needed))
                 {
+                    // If not seen, add the current number to the seen set.
                     seen.Add(numbers[i]);
                 }
                 else
                 {
                     return true;
                 }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Determines whether the specified array contains two distinct elements such that one element is double the
+        /// other.
+        /// </summary>
+        /// <param name="numbers">An array of integers to search for a pair where one value is double the other. Cannot be null.</param>
+        /// <returns>true if there exists at least one pair of distinct elements where one is double the other; otherwise, false.</returns>
+        public static bool CheckIfDoubleExists(int[] numbers)
+        {
+            // Validate the input parameters
+            if (numbers == null || numbers.Length < 2) return false;
+
+            // Declare the local scope variables.
+            HashSet<int> seen = new HashSet<int>();
+
+            // Iterate through the numbers array to find duplicates.
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                // Check if the double or half of the current number has already been seen.
+                if (seen.Contains(numbers[i] * 2) || (numbers[i] % 2 == 0) && seen.Contains(numbers[i] / 2)) return true;
+
+                // If not seen, add the current number to the seen set.
+                seen.Add(numbers[i]);
             }
 
             return false;

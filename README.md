@@ -13,5 +13,6 @@ Implemented helpers:
 - `FirstUniqueChar(string input)` — first non-repeating character (returns `char?`). Complexity: O(n) time, O(1) extra space (fixed 256-size frequency array).
 - `TwoSum(int[] nums, int target)` — returns two indices whose values add to `target`. Complexity: O(n) time, O(n) space.
 - `HasTwoSum(int[] nums, int target)` — returns whether any two values add to `target`. Complexity: O(n) time, O(n) space.
+- `CheckDoubleExists(int[] nums)` — returns whether any value is double another value in the array. Complexity: O(n) time, O(n) space.
 
 All implementations are in `Interview Prep/Functions.cs`. The console listener and demo routines live in `Interview Prep/Program.cs`.

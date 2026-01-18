@@ -15,7 +15,8 @@
             { "firstunique", TestFirstUniqueCharacter },
             { "gettwosum", TestTwoSum },
             { "containsduplicate", TestContainsDuplicate },
-            { "checktwosum", TestCheckTwoSum }
+            { "checktwosum", TestCheckTwoSum },
+            { "checkifdoubleexists", TestCheckIfDoubleExists }
         };
 
         static void Main(string[] args)
@@ -152,5 +153,12 @@
             int target = 10;
             Console.WriteLine("Test Data: { 1, 2, 3, 4, 5 } with target 10");
             Console.WriteLine($"Check two sum unit test results: {Functions.CheckTwoSum(test, target)}");
+        }
+
+        static void TestCheckIfDoubleExists()
+        {
+            int[] test = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            Console.WriteLine("Test Data: { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 } ");
+            Console.WriteLine($"Check if double exists: {Functions.CheckIfDoubleExists(test)}");
         }
 }
