@@ -203,5 +203,37 @@ namespace Interview_Prep
 
             return null;
         }
+
+        /// <summary>
+        /// Determines whether any two distinct elements in the specified array sum to the given target value.
+        /// </summary>
+        /// <remarks>Elements are considered distinct if they have different indices in the array. The
+        /// method returns false if the array is null or contains fewer than two elements.</remarks>
+        /// <param name="numbers">An array of integers to search for a pair whose sum equals the target. Cannot be null and must contain at
+        /// least two elements.</param>
+        /// <param name="target">The target sum to search for as the sum of two distinct elements in the array.</param>
+        /// <returns>true if there are two distinct elements in the array whose sum equals the target value; otherwise, false.</returns>
+        public static bool HasTwoSum(int[] numbers, int target)
+        {
+            if (numbers == null || numbers.Length < 2) return false;
+
+            HashSet<int> seen = new HashSet<int>();
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                int needed = target - numbers[i];
+
+                if (!seen.Contains(needed))
+                {
+                    seen.Add(numbers[i]);
+                }
+                else
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

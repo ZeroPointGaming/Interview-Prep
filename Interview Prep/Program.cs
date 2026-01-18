@@ -10,15 +10,12 @@
         {
             { "minsubarraylen", TestMinSubArrayLen },
             { "min", TestMinSubArrayLen },
-
             { "longestzerosum", TestLongestZeroSumSubarray },
             { "zero", TestLongestZeroSumSubarray },
-
             { "firstunique", TestFirstUniqueCharacter },
-
-            { "twosum", TestTwoSum },
-
-            { "containsduplicate", TestContainsDuplicate }
+            { "gettwosum", TestTwoSum },
+            { "containsduplicate", TestContainsDuplicate },
+            { "checktwosum", TestCheckTwoSum }
         };
 
         static void Main(string[] args)
@@ -148,5 +145,12 @@
             Console.WriteLine("Test Data: { 1, 2, 3, 1 }");
             Console.WriteLine($"Contains duplicate unit test results: {Functions.ContainsDuplicate(test)}");
         }
-    }
+
+        static void TestCheckTwoSum()
+        {
+            int[] test = new int[] { 1, 2, 3, 4, 5 };
+            int target = 10;
+            Console.WriteLine("Test Data: { 1, 2, 3, 4, 5 } with target 10");
+            Console.WriteLine($"Check two sum unit test results: {Functions.CheckTwoSum(test, target)}");
+        }
 }
